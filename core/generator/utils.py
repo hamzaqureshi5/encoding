@@ -15,11 +15,6 @@ This code include following :
 4. Create output CSV or Text files [data, laser and server files] as well
 """
 
-# !pip install pycryptodome
-# you can use requirements.txt
-# from core.GlobalParams import PARAMETERS, DATA_FRAMES
-# from GlobalParams import PARAMETERS, DATA_FRAMES
-from globals.parameters import Parameters, DataFrames
 
 # from custom_json import JsonHandler
 from typing import Optional, List, Dict, Any, Tuple
@@ -31,41 +26,7 @@ import secrets
 import pandas as pd
 import collections
 import binascii
-import datetime
-import random
-import string
-import uuid
-import json
-import time
-import os
 
-CONFIGURATION_FILE_PATH = "settings.json"
-
-default_headers = (
-    "ICCID",
-    "IMSI",
-    "OP",
-    "K4",
-    "PIN1",
-    "PUK1",
-    "PIN2",
-    "PUK2",
-    "KI",
-    "EKI",
-    "OPC",
-    "ADM1",
-    "ADM6",
-    "ACC",
-    "KIC1",
-    "KID1",
-    "KIK1",
-    "KIC2",
-    "KID2",
-    "KIK2",
-    "KIC3",
-    "KID3",
-    "KIK3",
-)
 
 
 class CryptoUtils:
