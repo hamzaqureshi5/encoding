@@ -16,13 +16,13 @@ class IMSI(BaseModel):
 
 
 class KEYS(BaseModel):
-    K4: constr(min_length=32, max_length=64)  # type: ignore
+    k4: constr(min_length=32, max_length=64)  # type: ignore
     op: constr(min_length=32, max_length=32)  # type: ignore
     ki: constr(min_length=32, max_length=32)  # type: ignore
 
 
-def gen_opc_eki(op, transport, ki):
-    return {"KI": ki, "OPC": DataGenerator.generate_opc(op, ki), "eKI": DataGenerator.generate_eki(transport, ki)}
+def gen_opc_eki(op, transport, ki) -> (str, str, str):
+    return ki,DataGenerator.generate_opc(op, ki),DataGenerator.generate_eki(transport, ki)
 
 
 class MainWindow(QMainWindow, Ui_MainWindow):
@@ -99,6 +99,15 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def keys(self) -> None:
         try:
             k = KEYS(ki=self.ui.ki.text(), op=self.ui.op.text(), k4=self.ui.k4.text())
-            print(gen_opc_eki(k.op, k.K4, k.ki))
+
+            k_input = KEYS(ki=self.ui.ki.text(), op=self.ui.op.text(), k4=self.ui.k4.text())
+
+            k_out = gen_opc_eki(k_input.op, k_input.k4, k_input.ki)
+
+            self.ui.eki.setText(k_out[1])
+            self.ui.opc.setText(k_out[2])
+
+
+
         except ValidationError as e:
             print(e)
