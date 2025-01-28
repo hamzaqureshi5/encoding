@@ -132,53 +132,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         """
         Styler.apply_style(widget, is_valid)
 
-    # Business Logic Methods
-    # def _iccid_enc_function(self):
-    #     try:
-    #         iccid = Validator.validate_iccid_decoded(self.ui.iccid_input.text())
-    #         encoded = EncodingUtils.enc_iccid(iccid.iccid)
-    #         self.ui.iccid_output.setText(encoded)
-    #     except ValidationError as e:
-    #         print(f"ICCID Validation Error: {e}")
-    #
-    # def _iccid_dec_function(self):
-    #     try:
-    #         iccid = Validator.validate_iccid_encoded(self.ui.iccid_input.text())
-    #         decoded = EncodingUtils.dec_iccid(iccid.iccid)
-    #         self.ui.iccid_output.setText(decoded)
-    #     except ValidationError as e:
-    #         print(f"ICCID Validation Error: {e}")
-    #
-    # def _imsi_enc_function(self):
-    #     try:
-    #         imsi = Validator.validate_imsi_decoded(self.ui.imsi_input.text())
-    #         encoded = EncodingUtils.enc_imsi(imsi.imsi)
-    #         self.ui.imsi_output.setText(encoded)
-    #     except ValidationError as e:
-    #         print(f"IMSI Validation Error: {e}")
-    #
-    # def _imsi_dec_function(self):
-    #     try:
-    #         imsi = Validator.validate_imsi_encoded(self.ui.imsi_input.text())
-    #         decoded = EncodingUtils.dec_imsi(imsi.imsi)
-    #         self.ui.imsi_output.setText(decoded)
-    #     except ValidationError as e:
-    #         print(f"IMSI Validation Error: {e}")
-    #
-    # def _generate_keys(self):
-    #     try:
-    #         keys = Validator.validate_keys(
-    #             self.ui.ki.text(), self.ui.op.text(), self.ui.k4.text()
-    #         )
-    #         ki, opc, eki = KeyGenerator.generate_opc_eki(keys.op, keys.k4, keys.ki)
-    #         self.ui.eki.setText(eki)
-    #         self.ui.opc.setText(opc)
-    #     except ValidationError as e:
-    #         print(f"Key Validation Error: {e}")
-    #
-    #
-    #
-    # Business Logic Methods
     def _iccid_enc_function(self):
         try:
             iccid = Validator.validate_iccid_decoded(self.ui.iccid_input.text())
