@@ -35,6 +35,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.ui.setupUi(self)
         self.showMaximized()
         self.ui.k4.textChanged.connect(self.validate_k4_length)
+        self.ui.ki.textChanged.connect(self.on_ki_text_changed)
+        self.ui.op.textChanged.connect(self.on_op_text_changed)
         self.ui.iccid_enc_btn.clicked.connect(self.iccid_enc_function)
         self.ui.iccid_dec_btn.clicked.connect(self.iccid_dec_function)
 
@@ -43,6 +45,47 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         self.ui.enc_keys_conv_btn.clicked.connect(self.keys)
         
+    def on_ki_text_changed(self):
+
+        text = self.ui.ki.text()
+
+        if len(text) == 32:
+            self.ui.ki.setStyleSheet("""
+                QLineEdit {
+                    border: 2px solid green;
+                    border-radius: 5px;
+                    padding: 5px;
+                }
+            """)
+        else:
+            self.ui.ki.setStyleSheet("""
+                QLineEdit {
+                    border: 2px solid red;
+                    border-radius: 5px;
+                    padding: 5px;
+                }
+            """)   
+            
+    def on_op_text_changed(self):
+
+        text = self.ui.op.text()
+
+        if len(text) == 32:
+            self.ui.op.setStyleSheet("""
+                QLineEdit {
+                    border: 2px solid green;
+                    border-radius: 5px;
+                    padding: 5px;
+                }
+            """)
+        else:
+            self.ui.op.setStyleSheet("""
+                QLineEdit {
+                    border: 2px solid red;
+                    border-radius: 5px;
+                    padding: 5px;
+                }
+            """)   
     def validate_k4_length(self):
       
         text = self.ui.k4.text()
