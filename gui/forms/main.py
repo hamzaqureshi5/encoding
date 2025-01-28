@@ -296,7 +296,7 @@ class Ui_MainWindow(object):
 "                font-family: \"Segoe UI\";\n"
 "                font-size: 10pt;\n"
 "            }")
-        self.imsi_input.setMaxLength(15)
+        self.imsi_input.setMaxLength(18)
         self.imsi_input.setObjectName("imsi_input")
         self.imsi_output = QtWidgets.QLineEdit(parent=self.groupBox_3)
         self.imsi_output.setGeometry(QtCore.QRect(280, 40, 261, 30))
