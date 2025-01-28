@@ -1,6 +1,6 @@
 import sys
 from PyQt6.QtWidgets import QApplication, QMainWindow
-from gui.forms.main import Ui_MainWindow  # Import the UI class from the converted Python file
+from gui.forms.main import Ui_MainWindow # Import the UI class from the converted Python file
 from core.generator.utils import EncodingUtils
 from core.generator.utils import DataGenerator
 from pydantic import BaseModel, Field, conint, constr
@@ -28,12 +28,13 @@ def gen_opc_eki(op, transport, ki):
 class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
+       
         self.ui = self.setupUi(self)  # This sets up the UI created in the .ui file
 
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.showMaximized()
-
+        self.ui.k4.textChanged.connect(self.validate_k4_length)
         self.ui.iccid_enc_btn.clicked.connect(self.iccid_enc_function)
         self.ui.iccid_dec_btn.clicked.connect(self.iccid_dec_function)
 
@@ -41,7 +42,24 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.ui.imsi_dec_btn.clicked.connect(self.imsi_dec_function)
 
         self.ui.enc_keys_conv_btn.clicked.connect(self.keys)
-
+        
+    def validate_k4_length(self):
+      
+        text = self.ui.k4.text()
+        if len(text) % 32 == 0 and len(text) > 0:
+            self.ui.k4.setStyleSheet("""
+                QLineEdit {
+                    border: 2px solid green;
+                    border-radius: 5px;
+                }
+            """)
+        else:
+            self.ui.k4.setStyleSheet("""
+                QLineEdit {
+                    border: 2px solid red;
+                    border-radius: 5px;
+                }
+            """)
     def gen_keys_function(self):
         (ki, op, k4) = self.ui.ki, self.ui.op, self.ui.k4
 

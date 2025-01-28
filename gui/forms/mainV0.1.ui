@@ -307,7 +307,7 @@ QGroupBox::title {
             }</string>
       </property>
       <property name="maxLength">
-       <number>32</number>
+       <number>64</number>
       </property>
      </widget>
      <widget class="QLineEdit" name="opc">
@@ -521,8 +521,26 @@ QGroupBox::title {
      <height>22</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuFile_Menu">
+    <property name="title">
+     <string>File Menu</string>
+    </property>
+    <addaction name="actionOpen"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <addaction name="menuFile_Menu"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionOpen">
+   <property name="text">
+    <string>Open</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
