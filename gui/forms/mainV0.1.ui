@@ -27,6 +27,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true"> background-color: #f0f0f0;
+color:black;
             </string>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -703,7 +704,7 @@ background:transparent;
     <property name="title">
      <string>Settings</string>
     </property>
-    <addaction name="actionK4_Length"/>
+    <addaction name="k4_length"/>
    </widget>
    <widget class="QMenu" name="menuFile">
     <property name="title">
@@ -724,7 +725,10 @@ background:transparent;
     <string>Exit</string>
    </property>
   </action>
-  <action name="actionK4_Length">
+  <action name="k4_length">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>K4 Length</string>
    </property>
