@@ -710,7 +710,7 @@ background:transparent;
     <property name="title">
      <string>File</string>
     </property>
-    <addaction name="actionExit_2"/>
+    <addaction name="exit"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuSetting"/>
@@ -733,7 +733,7 @@ background:transparent;
     <string>K4 Length</string>
    </property>
   </action>
-  <action name="actionExit_2">
+  <action name="exit">
    <property name="text">
     <string>Exit</string>
    </property>
